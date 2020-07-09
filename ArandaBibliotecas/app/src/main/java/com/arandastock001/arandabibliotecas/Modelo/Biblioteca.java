@@ -1,16 +1,17 @@
 package com.arandastock001.arandabibliotecas.Modelo;
 
-public class Biblioteca {
+import java.io.Serializable;
+
+public class Biblioteca implements Serializable {
 
     private int id;
     private String nombre, direccion, telefono, sitioWeb;
-    private Boolean esPublica;
-    private int fkCiudad;
+    private int esPublica, fkCiudad;
 
     public Biblioteca() {
     }
 
-    public Biblioteca(int id, String nombre, String direccion, String telefono, String sitioWeb, Boolean esPublica, int fkCiudad) {
+    public Biblioteca(int id, String nombre, String direccion, String telefono, String sitioWeb, int esPublica, int fkCiudad) {
         this.id = id;
         this.nombre = nombre;
         this.direccion = direccion;
@@ -60,11 +61,11 @@ public class Biblioteca {
         this.sitioWeb = sitioWeb;
     }
 
-    public Boolean getEsPublica() {
+    public int getEsPublica() {
         return esPublica;
     }
 
-    public void setEsPublica(Boolean esPublica) {
+    public void setEsPublica(int esPublica) {
         this.esPublica = esPublica;
     }
 

@@ -15,10 +15,12 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.arandastock001.arandabibliotecas.Modelo.Biblioteca;
 import com.arandastock001.arandabibliotecas.Modelo.Ciudad;
 import com.arandastock001.arandabibliotecas.Modelo.DB.Data;
 import com.arandastock001.arandabibliotecas.Modelo.Region;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,7 +36,10 @@ public class BuscadorDeBibiliotecas extends AppCompatActivity {
 
     private List<Ciudad> listaCiudades;
     private ArrayAdapter<Ciudad> adaptadorCiudades;
-    private List<Ciudad> listaCiudadesPresentesEnLaRegion;
+
+    private List<Biblioteca> listaDeBibliotecasEncontradas;
+
+    private  List<Ciudad> ciudadesEncontradas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,10 +49,10 @@ public class BuscadorDeBibiliotecas extends AppCompatActivity {
         cargarSpinnerDeRegiones();
         cargarSpinnerDeCiudades();
         cargarTipos();
+        cargarBibliotecas();
 
 
     }
-
 
 
 
@@ -83,7 +88,19 @@ public class BuscadorDeBibiliotecas extends AppCompatActivity {
 
 
                 }else{
-                    startActivity(new Intent(BuscadorDeBibiliotecas.this, ListadoDeBibliotecas.class));
+                    Ciudad c = ((Ciudad) spnCiudad.getSelectedItem());
+                    int esPublica = 1;
+                    if(String.valueOf(spnTipo.toString())=="Privada"){
+                        esPublica = 0;
+                    }
+
+                    listaDeBibliotecasEncontradas = db.getBibliotecasFiltradas(c.getId(), esPublica);
+
+                    spnRegion.setSelection(0);
+                    spnCiudad.setSelection(0);
+                    spnTipo.setSelection(0);
+
+                    startActivity(new Intent(BuscadorDeBibiliotecas.this, ListadoDeBibliotecas.class).putExtra("bibliotecasEncontradas", (Serializable) listaDeBibliotecasEncontradas));
                     finish();
                 }
 
@@ -227,8 +244,35 @@ public class BuscadorDeBibiliotecas extends AppCompatActivity {
 
 
         Region r = (Region)spnRegion.getSelectedItem();
-        listaCiudadesPresentesEnLaRegion = db.getCiudadesDeLaRegion(r.getId());
-        adaptadorCiudades = new ArrayAdapter<Ciudad>(this.getApplicationContext(), android.R.layout.simple_spinner_dropdown_item,listaCiudadesPresentesEnLaRegion);
+        ciudadesEncontradas = db.getCiudadesDeLaRegion(r.getId());
+        adaptadorCiudades = new ArrayAdapter<Ciudad>(this.getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, ciudadesEncontradas)//;
+        {
+            @Override
+            public boolean isEnabled(int position){
+            if(position == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+            @Override
+            public View getDropDownView(int position, View convertView,
+                ViewGroup parent) {
+            View view = super.getDropDownView(position, convertView, parent);
+            TextView tv = (TextView) view;
+            if(position == 0){
+                // Set the hint text color gray
+                tv.setTextColor(Color.GRAY);
+            }
+            else {
+                tv.setTextColor(Color.BLACK);
+            }
+            return view;
+        }
+        };
         spnCiudad.setAdapter(adaptadorCiudades);
     }
 
@@ -271,6 +315,22 @@ public class BuscadorDeBibiliotecas extends AppCompatActivity {
     }
 
 
+
+    private void cargarBibliotecas() {
+        db.insertarBiblioteca(new Biblioteca(1,"Primera biblioteca de ciudad 1", "Dirección de primera biblioteca", "Teléfono de primera biblioteca",
+                "Sitio web de primera biblioteca", 1, 2));
+        db.insertarBiblioteca(new Biblioteca(1,"Segunda biblioteca de ciudad 1", "Dirección de segunda biblioteca", "Teléfono de segunda biblioteca",
+                "Sitio web de segunda biblioteca", 1, 2));
+        db.insertarBiblioteca(new Biblioteca(1,"Tercera biblioteca de ciudad 1", "Dirección de segunda biblioteca", "Teléfono de segunda biblioteca",
+                "Sitio web de tercera biblioteca", 0, 2));
+        db.insertarBiblioteca(new Biblioteca(1,"Primera biblioteca de ciudad 1", "Dirección de primera biblioteca", "Teléfono de primera biblioteca",
+                "Sitio web de primera biblioteca", 0, 3));
+        db.insertarBiblioteca(new Biblioteca(1,"Segunda biblioteca de ciudad 1", "Dirección de segunda biblioteca", "Teléfono de segunda biblioteca",
+                "Sitio web de segunda biblioteca", 0, 3));
+        db.insertarBiblioteca(new Biblioteca(1,"Tercera biblioteca de ciudad 1", "Dirección de segunda biblioteca", "Teléfono de segunda biblioteca",
+                "Sitio web de tercera biblioteca", 0, 3));
+
+    }
 
 
 }

@@ -21,7 +21,7 @@ public class Data extends SQLiteOpenHelper {
     private static final int VERSION_BD = 1;
     private static final String TABLA_REGION = "CREATE TABLE REGION(_id INTEGER PRIMARY KEY AUTOINCREMENT, _nombre TEXT);";
     private static final String TABLA_CIUDAD = "CREATE TABLE CIUDAD(_id INTEGER PRIMARY KEY AUTOINCREMENT, _nombre TEXT, _fkRegion INT, FOREIGN KEY (_fkRegion) REFERENCES REGION (_id));";
-    private static final String TABLA_BIBLIOTECA = "CREATE TABLE BIBLIOTECA(_id INTEGER PRIMARY KEY AUTOINCREMENT, _nombre TEXT, _direccion TEXT, _telefono TEXT, _sitioWeb TEXT, _esPublica BOOLEAN, _fkCiudad INT, FOREIGN KEY (_fkCiudad) REFERENCES CIUDAD (_id));";
+    private static final String TABLA_BIBLIOTECA = "CREATE TABLE BIBLIOTECA(_id INTEGER PRIMARY KEY AUTOINCREMENT, _nombre TEXT, _direccion TEXT, _telefono TEXT, _sitioWeb TEXT, _esPublica INT, _fkCiudad BOOLEAN, FOREIGN KEY (_fkCiudad) REFERENCES CIUDAD (_id));";
 
     public Data(@Nullable Context context) {
         super(context, NOMBRE_BD, null, VERSION_BD);
@@ -71,7 +71,7 @@ public class Data extends SQLiteOpenHelper {
     }
 
 
-    public void insertarCiudad (Ciudad c){
+    public void insertarCiudad(Ciudad c){
         SQLiteDatabase bd = getWritableDatabase();
 
         if (bd != null){
@@ -84,6 +84,24 @@ public class Data extends SQLiteOpenHelper {
         }
         bd.close();
     }
+
+
+    public void insertarBiblioteca(Biblioteca b){
+        SQLiteDatabase bd = getWritableDatabase();
+
+        if (bd != null){
+            String query="INSERT INTO BIBLIOTECA VALUES (NULL, '"+b.getNombre()+"', '"+b.getDireccion()+"', '"+b.getTelefono()+"', '"+b.getSitioWeb()+"', "+b.getEsPublica()+", "+b.getFkCiudad()+");";
+            bd.execSQL(query);
+
+            System.out.println(query);
+        }else{
+            System.out.println("No existe bd");
+        }
+        bd.close();
+    }
+
+
+
 
     public List<Region> getRegiones(){
         List<Region> regiones = new ArrayList<>();
@@ -144,7 +162,7 @@ public class Data extends SQLiteOpenHelper {
             b.setDireccion(leer.getString(2));
             b.setTelefono(leer.getString(3));
             b.setSitioWeb(leer.getString(4));
-            b.setEsPublica((leer.getInt(5)>1));
+            b.setEsPublica((leer.getInt(5)));
             b.setFkCiudad(leer.getInt(6));
             bibiliotecas.add(b);
         }
@@ -153,11 +171,11 @@ public class Data extends SQLiteOpenHelper {
         return bibiliotecas;
     }
 
-    public List<Biblioteca> getBiblitecasDeCiudadPorTipo(int id, Boolean esPublica){
+    public List<Biblioteca> getBibliotecasFiltradas(int id, int esPublica){
         List<Biblioteca> bibiliotecas =new ArrayList<>();
 
         SQLiteDatabase bd = getReadableDatabase();
-        Cursor leer = bd.rawQuery("SELECT * FROM BIBLIOTECA WHERE _fkCiudad = "+id+", _esPublica = "+esPublica+" AND _fkCiudad != 1;" ,null);
+        Cursor leer = bd.rawQuery("SELECT * FROM BIBLIOTECA WHERE _fkCiudad = "+id+" AND _esPublica = "+esPublica+";" ,null);
 
         Biblioteca b;
         while(leer.moveToNext()){
@@ -167,7 +185,7 @@ public class Data extends SQLiteOpenHelper {
             b.setDireccion(leer.getString(2));
             b.setTelefono(leer.getString(3));
             b.setSitioWeb(leer.getString(4));
-            b.setEsPublica((leer.getInt(5)>1));
+            b.setEsPublica((leer.getInt(5)));
             b.setFkCiudad(leer.getInt(6));
             bibiliotecas.add(b);
         }
@@ -175,8 +193,6 @@ public class Data extends SQLiteOpenHelper {
 
         return bibiliotecas;
     }
-
-
 
 
 
@@ -187,6 +203,17 @@ public class Data extends SQLiteOpenHelper {
 
         SQLiteDatabase bd = getReadableDatabase();
         Cursor leer = bd.rawQuery("SELECT * FROM CIUDAD WHERE _fkRegion= "+fkRegion+";",null);
+
+
+        Cursor laPrimeraCiudad =bd.rawQuery("SELECT * FROM CIUDAD WHERE _id= 1;",null);
+        Ciudad PrimeraC = new Ciudad();
+        if(laPrimeraCiudad.moveToFirst()){
+            PrimeraC.setId(laPrimeraCiudad.getInt(0));
+            PrimeraC.setNombre(laPrimeraCiudad.getString(1));
+            PrimeraC.setFkRegion(laPrimeraCiudad.getInt(2));
+            ciudades.add(PrimeraC);
+
+        }
 
         Ciudad c;
         while (leer.moveToNext()){
@@ -202,27 +229,7 @@ public class Data extends SQLiteOpenHelper {
     }
 
 
-    public List<Biblioteca> getBibliotecasFiltradas(String fkCiudad, int esPublica){
-        List<Biblioteca> bibiliotecas =new ArrayList<>();
 
-        SQLiteDatabase bd = getReadableDatabase();
-        Cursor leer = bd.rawQuery("SELECT * FROM BIBILIOTECA WHERE _fkCiudad= "+fkCiudad+" AND _esPublica= "+esPublica+" ",null);
-
-        Biblioteca b = new Biblioteca();
-        while(leer.moveToNext()){
-            b.setId(leer.getInt(0));
-            b.setNombre(leer.getString(1));
-            b.setDireccion(leer.getString(2));
-            b.setTelefono(leer.getString(3));
-            b.setSitioWeb(leer.getString(4));
-            b.setEsPublica((leer.getInt(5)>1));
-            b.setFkCiudad(leer.getInt(6));
-            bibiliotecas.add(b);
-        }
-        bd.close();
-
-        return bibiliotecas;
-    }
 
 
 
