@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ArandaBibliotecas</string>
+    <string name="title_activity_ubicacion_de_la_biblioteca">Map</string>
+    <string name="lblTituloBuscadorDeBibliotecas">Buscar</string>
+    <string name="btnFiltrarBuscadorDeBibliotecas">Filtrar</string>
+
+
+</resources>
