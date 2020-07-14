@@ -7,7 +7,7 @@
     <string name="lblNombreInforBasica">NOMBRE</string>
     <string name="lblDireccionInfoBasica">DIRECCIÓN</string>
     <string name="lblTelefonoInfoBasica">TELÉFONO</string>
-    <string name="btnVerUbicacionInfoBasica">ver ubicación</string>
+    <string name="btnVerUbicacionInfoBasica">VER UBICACIÓN</string>
     <string name="lblVerInformacionBasica">INFO_BÁSICA</string>
     <string name="btnVerInformacionDetallada">INFO_DETALLADA</string>
     <string name="btn_ver_info_basica">INFO_BÁSICA</string>
@@ -17,7 +17,7 @@
     <string name="lblTelefonoInfoDetallada">TELÉFONO</string>
     <string name="lblSitioWebInfoDetallada">SITIO WEB</string>
     <string name="lblTipoInfoDetallada">TIPO</string>
-    <string name="btnVerUbicacionInfoDetallada">VER BICACIÓN</string>
+    <string name="btnVerUbicacionInfoDetallada">VER UBICACIÓN</string>
     <string name="btnInformacionBasica">INFO_BÁSICA</string>
 
 

@@ -10,26 +10,25 @@
         android:id="@+id/lblInfoDetallada"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="103dp"
+        android:layout_marginStart="19dp"
         android:text="@string/lblInfoDetallada"
         app:layout_constraintBaseline_toBaselineOf="@+id/btnInformacionBasica"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/lblNombreAVerInfoDetallada" />
 
     <TextView
         android:id="@+id/lblNombreInfoDetallada"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="37dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginStart="26dp"
         android:text="@string/lblNombreInfoDetallada"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnInformacionBasica" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/lblNombreAVerInfoDetallada"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/lblDireccionInfoDetallada"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="37dp"
+        android:layout_marginStart="26dp"
         android:text="@string/lblDireccionInfoDetallada"
         app:layout_constraintBaseline_toBaselineOf="@+id/lblDireccionAVerInfoDetallada"
         app:layout_constraintStart_toStartOf="parent" />
@@ -38,88 +37,84 @@
         android:id="@+id/lblTelefonoInfoDetallada"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="37dp"
+        android:layout_marginStart="26dp"
         android:text="@string/lblTelefonoInfoDetallada"
-        app:layout_constraintBottom_toTopOf="@+id/lblTelefonoAVerInfoDetallada"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/lblTelefonoAVerInfoDetallada" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/lblTelefonoAVerInfoDetallada"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/lblSitioWebInfoDetallada"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="29dp"
+        android:layout_marginStart="26dp"
         android:text="@string/lblSitioWebInfoDetallada"
-        app:layout_constraintBottom_toTopOf="@+id/lblTipoInfoDetallada"
-        app:layout_constraintStart_toStartOf="@+id/lblTelefonoInfoDetallada" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/lblSitioWebAVerInfoDetallada"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/lblTipoInfoDetallada"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="33dp"
-        android:layout_marginTop="130dp"
-        android:layout_marginBottom="130dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="25dp"
         android:text="@string/lblTipoInfoDetallada"
-        app:layout_constraintBottom_toBottomOf="@+id/btnVerUbicacionInfoDetallada"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/lblDireccionInfoDetallada" />
+        app:layout_constraintTop_toBottomOf="@+id/lblSitioWebInfoDetallada" />
 
     <Button
         android:id="@+id/btnVerUbicacionInfoDetallada"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="115dp"
-        android:layout_marginBottom="261dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="79dp"
         android:text="@string/btnVerUbicacionInfoDetallada"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/lblTipoAVerInfoDetallada"
+        app:layout_constraintTop_toBottomOf="@+id/lblTipoAVerInfoDetallada" />
 
     <TextView
         android:id="@+id/lblNombreAVerInfoDetallada"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="28dp"
         android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/lblDireccionInfoDetallada"
-        app:layout_constraintTop_toTopOf="@+id/lblNombreInfoDetallada" />
+        app:layout_constraintStart_toStartOf="@+id/lblDireccionAVerInfoDetallada"
+        app:layout_constraintTop_toBottomOf="@+id/btnInformacionBasica" />
 
     <TextView
         android:id="@+id/lblDireccionAVerInfoDetallada"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
+        android:layout_marginStart="18dp"
         android:layout_marginTop="27dp"
         android:text="TextView"
-        app:layout_constraintStart_toStartOf="@+id/lblNombreAVerInfoDetallada"
+        app:layout_constraintStart_toEndOf="@+id/lblDireccionInfoDetallada"
         app:layout_constraintTop_toBottomOf="@+id/lblNombreAVerInfoDetallada" />
 
     <TextView
         android:id="@+id/lblTelefonoAVerInfoDetallada"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginBottom="14dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="28dp"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/lblSitioWebAVerInfoDetallada"
-        app:layout_constraintStart_toStartOf="@+id/lblSitioWebAVerInfoDetallada" />
+        app:layout_constraintStart_toEndOf="@+id/lblTelefonoInfoDetallada"
+        app:layout_constraintTop_toBottomOf="@+id/lblDireccionAVerInfoDetallada" />
 
     <TextView
         android:id="@+id/lblSitioWebAVerInfoDetallada"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="7dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="26dp"
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/lblSitioWebInfoDetallada"
-        app:layout_constraintTop_toTopOf="@+id/lblSitioWebInfoDetallada" />
+        app:layout_constraintTop_toBottomOf="@+id/lblTelefonoAVerInfoDetallada" />
 
     <TextView
         android:id="@+id/lblTipoAVerInfoDetallada"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="25dp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="@+id/lblSitioWebAVerInfoDetallada"
         app:layout_constraintTop_toBottomOf="@+id/lblSitioWebAVerInfoDetallada" />
@@ -128,9 +123,9 @@
         android:id="@+id/btnInformacionBasica"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="26dp"
         android:layout_marginTop="54dp"
         android:text="@string/btnInformacionBasica"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/lblNombreInfoDetallada"
+        app:layout_constraintStart_toEndOf="@+id/lblNombreInfoDetallada"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

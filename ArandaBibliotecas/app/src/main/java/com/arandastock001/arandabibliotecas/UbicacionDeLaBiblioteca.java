@@ -1,9 +1,16 @@
 package com.arandastock001.arandabibliotecas;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.Toast;
 
+import com.arandastock001.arandabibliotecas.Modelo.Biblioteca;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -14,6 +21,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class UbicacionDeLaBiblioteca extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    private Biblioteca b;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +31,36 @@ public class UbicacionDeLaBiblioteca extends FragmentActivity implements OnMapRe
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+    }
+
+    public void init(){
+        Intent i = getIntent();
+
+        b = ((Biblioteca) i.getSerializableExtra("bibliotecaSeleccionada"));
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_icon, menu);
+        return true;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.item1:
+                Toast.makeText(this, "ArandaBibliotecas, creada por Marcelo Aranda el 16/7/2020. Se usó Google Maps",Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.item2:
+                startActivity(new Intent(UbicacionDeLaBiblioteca.this, BuscadorDeBibiliotecas.class));
+                finish();
+                return true;
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 
