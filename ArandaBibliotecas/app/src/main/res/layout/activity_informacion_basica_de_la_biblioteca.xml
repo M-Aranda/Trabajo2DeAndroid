@@ -6,4 +6,92 @@
     android:layout_height="match_parent"
     tools:context=".InformacionBasicaDeLaBiblioteca">
 
+    <TextView
+        android:id="@+id/lblNombreInfoBasica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="156dp"
+        android:text="@string/lblNombreInforBasica"
+        app:layout_constraintEnd_toEndOf="@+id/lblTelefonoInfoBasica"
+        app:layout_constraintStart_toStartOf="@+id/lblTelefonoInfoBasica"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lblDireccionInfoBasica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lblDireccionInfoBasica"
+        app:layout_constraintBaseline_toBaselineOf="@+id/lblDireccionAVerInfoBasica"
+        app:layout_constraintStart_toStartOf="@+id/lblNombreInfoBasica" />
+
+    <TextView
+        android:id="@+id/lblTelefonoInfoBasica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:text="@string/lblTelefonoInfoBasica"
+        app:layout_constraintBaseline_toBaselineOf="@+id/lblTelefonoAVerInfoBasica"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnVerUbicacionInfoBasica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="263dp"
+        android:layout_marginBottom="264dp"
+        android:text="@string/btnVerUbicacionInfoBasica"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/lblNombreInfoBasica" />
+
+    <TextView
+        android:id="@+id/lblNombreAVerInfoBasica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="22dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/lblDireccionAVerInfoBasica"
+        app:layout_constraintStart_toStartOf="@+id/lblDireccionAVerInfoBasica" />
+
+    <TextView
+        android:id="@+id/lblDireccionAVerInfoBasica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="24dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/lblDireccionInfoBasica"
+        app:layout_constraintTop_toBottomOf="@+id/lblNombreInfoBasica" />
+
+    <TextView
+        android:id="@+id/lblTelefonoAVerInfoBasica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="32dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/lblDireccionAVerInfoBasica"
+        app:layout_constraintTop_toBottomOf="@+id/lblDireccionAVerInfoBasica" />
+
+    <TextView
+        android:id="@+id/lblVerInformacionBasica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="46dp"
+        android:text="@string/lblVerInformacionBasica"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnVerInformacionDetallada"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnVerInformacionDetallada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginBottom="37dp"
+        android:text="@string/btnVerInformacionDetallada"
+        app:layout_constraintBottom_toTopOf="@+id/lblNombreAVerInfoBasica"
+        app:layout_constraintStart_toStartOf="@+id/lblNombreAVerInfoBasica" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

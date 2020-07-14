@@ -6,4 +6,131 @@
     android:layout_height="match_parent"
     tools:context=".InformacionDetalladaDeLaBiblioteca">
 
+    <TextView
+        android:id="@+id/lblInfoDetallada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="103dp"
+        android:text="@string/lblInfoDetallada"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnInformacionBasica"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/lblNombreInfoDetallada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="45dp"
+        android:text="@string/lblNombreInfoDetallada"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnInformacionBasica" />
+
+    <TextView
+        android:id="@+id/lblDireccionInfoDetallada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="37dp"
+        android:text="@string/lblDireccionInfoDetallada"
+        app:layout_constraintBaseline_toBaselineOf="@+id/lblDireccionAVerInfoDetallada"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/lblTelefonoInfoDetallada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="37dp"
+        android:text="@string/lblTelefonoInfoDetallada"
+        app:layout_constraintBottom_toTopOf="@+id/lblTelefonoAVerInfoDetallada"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/lblTelefonoAVerInfoDetallada" />
+
+    <TextView
+        android:id="@+id/lblSitioWebInfoDetallada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="29dp"
+        android:text="@string/lblSitioWebInfoDetallada"
+        app:layout_constraintBottom_toTopOf="@+id/lblTipoInfoDetallada"
+        app:layout_constraintStart_toStartOf="@+id/lblTelefonoInfoDetallada" />
+
+    <TextView
+        android:id="@+id/lblTipoInfoDetallada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="130dp"
+        android:layout_marginBottom="130dp"
+        android:text="@string/lblTipoInfoDetallada"
+        app:layout_constraintBottom_toBottomOf="@+id/btnVerUbicacionInfoDetallada"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/lblDireccionInfoDetallada" />
+
+    <Button
+        android:id="@+id/btnVerUbicacionInfoDetallada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="115dp"
+        android:layout_marginBottom="261dp"
+        android:text="@string/btnVerUbicacionInfoDetallada"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/lblNombreAVerInfoDetallada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="2dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/lblDireccionInfoDetallada"
+        app:layout_constraintTop_toTopOf="@+id/lblNombreInfoDetallada" />
+
+    <TextView
+        android:id="@+id/lblDireccionAVerInfoDetallada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="27dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/lblNombreAVerInfoDetallada"
+        app:layout_constraintTop_toBottomOf="@+id/lblNombreAVerInfoDetallada" />
+
+    <TextView
+        android:id="@+id/lblTelefonoAVerInfoDetallada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginBottom="14dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/lblSitioWebAVerInfoDetallada"
+        app:layout_constraintStart_toStartOf="@+id/lblSitioWebAVerInfoDetallada" />
+
+    <TextView
+        android:id="@+id/lblSitioWebAVerInfoDetallada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="7dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/lblSitioWebInfoDetallada"
+        app:layout_constraintTop_toTopOf="@+id/lblSitioWebInfoDetallada" />
+
+    <TextView
+        android:id="@+id/lblTipoAVerInfoDetallada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/lblSitioWebAVerInfoDetallada"
+        app:layout_constraintTop_toBottomOf="@+id/lblSitioWebAVerInfoDetallada" />
+
+    <Button
+        android:id="@+id/btnInformacionBasica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="54dp"
+        android:text="@string/btnInformacionBasica"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

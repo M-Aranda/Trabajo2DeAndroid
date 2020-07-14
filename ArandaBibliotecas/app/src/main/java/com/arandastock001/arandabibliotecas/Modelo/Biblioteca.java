@@ -79,14 +79,11 @@ public class Biblioteca implements Serializable {
 
     @Override
     public String toString() {
-        return "Biblioteca{" +
-                "id=" + id +
-                ", nombre='" + nombre + '\'' +
-                ", direccion='" + direccion + '\'' +
-                ", telefono='" + telefono + '\'' +
-                ", sitioWeb='" + sitioWeb + '\'' +
-                ", esPublica=" + esPublica +
-                ", fkCiudad=" + fkCiudad +
-                '}';
+        String tipo="privada";
+        if(this.getEsPublica()==1){
+            tipo="pública";
+        }
+        return "Biblioteca "+this.getNombre()+" \n" +
+                "Biblioteca "+tipo;
     }
 }
