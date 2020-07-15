@@ -164,9 +164,23 @@ public class BuscadorDeBibiliotecas extends AppCompatActivity {
     public void cargarSpinnerDeRegiones(){
 
         db.insertarRegion(new Region(1,"Región"));
+        db.insertarRegion(new Region(1,"Arica y Parinacota"));
+        db.insertarRegion(new Region(1,"Tarapacá"));
         db.insertarRegion(new Region(1,"Antofagasta"));
-        db.insertarRegion(new Region(1,"Ohiggins"));
+        db.insertarRegion(new Region(1,"Atacama"));
+        db.insertarRegion(new Region(1,"Coquimbo"));
+        db.insertarRegion(new Region(1,"Valparaíso"));
+        db.insertarRegion(new Region(1,"Metropolitana"));
+        db.insertarRegion(new Region(1,"OHiggins"));
+        db.insertarRegion(new Region(1,"Maule"));
+        db.insertarRegion(new Region(1,"Ñuble"));
+        db.insertarRegion(new Region(1,"Bío Bío"));
         db.insertarRegion(new Region(1,"La Araucanía"));
+        db.insertarRegion(new Region(1,"Los Ríos"));
+        db.insertarRegion(new Region(1,"Los Lagos"));
+        db.insertarRegion(new Region(1,"Aysén del General Carlos Ibáñez del Campo"));
+        db.insertarRegion(new Region(1,"Magallanes y la Antártica Chilena"));
+
 
 
         listaRegiones= db.getRegiones();
@@ -214,15 +228,10 @@ public class BuscadorDeBibiliotecas extends AppCompatActivity {
 
 
         db.insertarCiudad(new Ciudad(1,"Ciudad",1));
-        db.insertarCiudad(new Ciudad(1,"Primera ciudad de region 1",2));
-        db.insertarCiudad(new Ciudad(1,"Segunda ciudad de region 1",2));
-        db.insertarCiudad(new Ciudad(1,"Tercera ciudad de region 1",2));
-        db.insertarCiudad(new Ciudad(1,"Primera ciudad de region 2",3));
-        db.insertarCiudad(new Ciudad(1,"Segunda ciudad de region 2",3));
-        db.insertarCiudad(new Ciudad(1,"Tercera ciudad de region 2",3));
-        db.insertarCiudad(new Ciudad(1,"Primera ciudad de region 3",4));
-        db.insertarCiudad(new Ciudad(1,"Segunda ciudad de region 3",4));
-        db.insertarCiudad(new Ciudad(1,"Tercera ciudad de region 3",4));
+        db.insertarCiudad(new Ciudad(1,"Arica",2));
+        db.insertarCiudad(new Ciudad(1,"Visviri",2));
+        db.insertarCiudad(new Ciudad(1,"Putre",2));
+
 
         listaCiudades= db.getCiudades();
 
@@ -344,18 +353,13 @@ public class BuscadorDeBibiliotecas extends AppCompatActivity {
 
 
     private void cargarBibliotecas() {
-        db.insertarBiblioteca(new Biblioteca(1,"Primera biblioteca de ciudad 1", "Dirección de primera biblioteca", "Teléfono de primera biblioteca",
+        db.insertarBiblioteca(new Biblioteca(1,"Alfredo Wormald Cruz Arica", "Dirección de primera biblioteca", "Teléfono de primera biblioteca",
                 "Sitio web de primera biblioteca", 1, 2));
-        db.insertarBiblioteca(new Biblioteca(1,"Segunda biblioteca de ciudad 1", "Dirección de segunda biblioteca", "Teléfono de segunda biblioteca",
+        db.insertarBiblioteca(new Biblioteca(1,"Los industriales de Arica", "Dirección de segunda biblioteca", "Teléfono de segunda biblioteca",
                 "Sitio web de segunda biblioteca", 1, 2));
         db.insertarBiblioteca(new Biblioteca(1,"Tercera biblioteca de ciudad 1", "Dirección de segunda biblioteca", "Teléfono de segunda biblioteca",
-                "Sitio web de tercera biblioteca", 0, 2));
-        db.insertarBiblioteca(new Biblioteca(1,"Primera biblioteca de ciudad 1", "Dirección de primera biblioteca", "Teléfono de primera biblioteca",
-                "Sitio web de primera biblioteca", 0, 3));
-        db.insertarBiblioteca(new Biblioteca(1,"Segunda biblioteca de ciudad 1", "Dirección de segunda biblioteca", "Teléfono de segunda biblioteca",
-                "Sitio web de segunda biblioteca", 0, 3));
-        db.insertarBiblioteca(new Biblioteca(1,"Tercera biblioteca de ciudad 1", "Dirección de segunda biblioteca", "Teléfono de segunda biblioteca",
-                "Sitio web de tercera biblioteca", 0, 3));
+                "Central universidad de Tarapacá", 0, 2));
+
 
     }
 
