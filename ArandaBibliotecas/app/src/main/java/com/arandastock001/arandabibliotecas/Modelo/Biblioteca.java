@@ -7,11 +7,12 @@ public class Biblioteca implements Serializable {
     private int id;
     private String nombre, direccion, telefono, sitioWeb;
     private int esPublica, fkCiudad;
+    private Double latitud, longitud;
 
     public Biblioteca() {
     }
 
-    public Biblioteca(int id, String nombre, String direccion, String telefono, String sitioWeb, int esPublica, int fkCiudad) {
+    public Biblioteca(int id, String nombre, String direccion, String telefono, String sitioWeb, int esPublica, int fkCiudad, Double latitud, Double longitud) {
         this.id = id;
         this.nombre = nombre;
         this.direccion = direccion;
@@ -19,6 +20,8 @@ public class Biblioteca implements Serializable {
         this.sitioWeb = sitioWeb;
         this.esPublica = esPublica;
         this.fkCiudad = fkCiudad;
+        this.latitud = latitud;
+        this.longitud = longitud;
     }
 
     public int getId() {
@@ -75,6 +78,22 @@ public class Biblioteca implements Serializable {
 
     public void setFkCiudad(int fkCiudad) {
         this.fkCiudad = fkCiudad;
+    }
+
+    public Double getLatitud() {
+        return latitud;
+    }
+
+    public void setLatitud(Double latitud) {
+        this.latitud = latitud;
+    }
+
+    public Double getLongitud() {
+        return longitud;
+    }
+
+    public void setLongitud(Double longitud) {
+        this.longitud = longitud;
     }
 
     @Override

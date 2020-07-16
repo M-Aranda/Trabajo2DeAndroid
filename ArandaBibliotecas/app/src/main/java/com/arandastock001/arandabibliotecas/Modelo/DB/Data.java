@@ -21,7 +21,7 @@ public class Data extends SQLiteOpenHelper {
     private static final int VERSION_BD = 1;
     private static final String TABLA_REGION = "CREATE TABLE REGION(_id INTEGER PRIMARY KEY AUTOINCREMENT, _nombre TEXT);";
     private static final String TABLA_CIUDAD = "CREATE TABLE CIUDAD(_id INTEGER PRIMARY KEY AUTOINCREMENT, _nombre TEXT, _fkRegion INT, FOREIGN KEY (_fkRegion) REFERENCES REGION (_id));";
-    private static final String TABLA_BIBLIOTECA = "CREATE TABLE BIBLIOTECA(_id INTEGER PRIMARY KEY AUTOINCREMENT, _nombre TEXT, _direccion TEXT, _telefono TEXT, _sitioWeb TEXT, _esPublica INT, _fkCiudad BOOLEAN, FOREIGN KEY (_fkCiudad) REFERENCES CIUDAD (_id));";
+    private static final String TABLA_BIBLIOTECA = "CREATE TABLE BIBLIOTECA(_id INTEGER PRIMARY KEY AUTOINCREMENT, _nombre TEXT, _direccion TEXT, _telefono TEXT, _sitioWeb TEXT, _esPublica INT, _fkCiudad BOOLEAN, _latitud REAL, _longitud REAL, FOREIGN KEY (_fkCiudad) REFERENCES CIUDAD (_id));";
 
     public Data(@Nullable Context context) {
         super(context, NOMBRE_BD, null, VERSION_BD);
@@ -90,7 +90,7 @@ public class Data extends SQLiteOpenHelper {
         SQLiteDatabase bd = getWritableDatabase();
 
         if (bd != null){
-            String query="INSERT INTO BIBLIOTECA VALUES (NULL, '"+b.getNombre()+"', '"+b.getDireccion()+"', '"+b.getTelefono()+"', '"+b.getSitioWeb()+"', "+b.getEsPublica()+", "+b.getFkCiudad()+");";
+            String query="INSERT INTO BIBLIOTECA VALUES (NULL, '"+b.getNombre()+"', '"+b.getDireccion()+"', '"+b.getTelefono()+"', '"+b.getSitioWeb()+"', "+b.getEsPublica()+", "+b.getFkCiudad()+", "+b.getLatitud()+" , "+b.getLongitud()+" );";
             bd.execSQL(query);
 
             System.out.println(query);
@@ -164,6 +164,8 @@ public class Data extends SQLiteOpenHelper {
             b.setSitioWeb(leer.getString(4));
             b.setEsPublica((leer.getInt(5)));
             b.setFkCiudad(leer.getInt(6));
+            b.setLatitud(leer.getDouble(7));
+            b.setLongitud(leer.getDouble(8));
             bibiliotecas.add(b);
         }
         bd.close();
@@ -187,6 +189,8 @@ public class Data extends SQLiteOpenHelper {
             b.setSitioWeb(leer.getString(4));
             b.setEsPublica((leer.getInt(5)));
             b.setFkCiudad(leer.getInt(6));
+            b.setLatitud(leer.getDouble(7));
+            b.setLongitud(leer.getDouble(8));
             bibiliotecas.add(b);
         }
         bd.close();

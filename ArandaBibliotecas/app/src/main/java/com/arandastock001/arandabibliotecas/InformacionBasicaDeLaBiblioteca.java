@@ -90,6 +90,7 @@ public class InformacionBasicaDeLaBiblioteca extends AppCompatActivity {
         btnVerUbicacion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 startActivity(new Intent(InformacionBasicaDeLaBiblioteca.this, UbicacionDeLaBiblioteca.class).putExtra("bibliotecaSeleccionada", (Serializable) b));
                 finish();
             }

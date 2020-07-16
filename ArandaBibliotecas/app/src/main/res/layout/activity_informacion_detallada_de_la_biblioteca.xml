@@ -10,10 +10,11 @@
         android:id="@+id/lblInfoDetallada"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="19dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="8dp"
         android:text="@string/lblInfoDetallada"
-        app:layout_constraintBaseline_toBaselineOf="@+id/btnInformacionBasica"
-        app:layout_constraintStart_toEndOf="@+id/lblNombreAVerInfoDetallada" />
+        app:layout_constraintStart_toEndOf="@+id/btnInformacionBasica"
+        app:layout_constraintTop_toTopOf="@+id/btnInformacionBasica" />
 
     <TextView
         android:id="@+id/lblNombreInfoDetallada"
@@ -95,7 +96,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="29dp"
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/lblTelefonoInfoDetallada"
         app:layout_constraintTop_toBottomOf="@+id/lblDireccionAVerInfoDetallada" />

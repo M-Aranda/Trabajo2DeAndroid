@@ -353,12 +353,17 @@ public class BuscadorDeBibiliotecas extends AppCompatActivity {
 
 
     private void cargarBibliotecas() {
-        db.insertarBiblioteca(new Biblioteca(1,"Alfredo Wormald Cruz Arica", "Dirección de primera biblioteca", "Teléfono de primera biblioteca",
-                "Sitio web de primera biblioteca", 1, 2));
-        db.insertarBiblioteca(new Biblioteca(1,"Los industriales de Arica", "Dirección de segunda biblioteca", "Teléfono de segunda biblioteca",
-                "Sitio web de segunda biblioteca", 1, 2));
-        db.insertarBiblioteca(new Biblioteca(1,"Tercera biblioteca de ciudad 1", "Dirección de segunda biblioteca", "Teléfono de segunda biblioteca",
-                "Central universidad de Tarapacá", 0, 2));
+        db.insertarBiblioteca(new Biblioteca(1,"Alfredo Wormald Cruz Arica", "Baquedano 94, Arica, Arica y Parinacota", "(58) 238 6587",
+                "No se encontró", 1, 2,-18.481197,-70.319766));
+
+
+        db.insertarBiblioteca(new Biblioteca(1,"Los industriales de Arica", "403 BC1, Biblioteca Pública Industriales\n" +
+                "Calle Samo Alto 3347\n" +
+                "Arica, Arica, Región de Arica y Parinacota", "58 2386581 / 58 2386582",
+                "https://www.biblioredes.gob.cl/bibliotecas/arica/industriales", 1, 2,-18.454388,-70.281407));
+
+        db.insertarBiblioteca(new Biblioteca(1,"Central universidad de Tarapacá", "18 de Septiembre 2222", "No se encontró",
+                "http://sb.uta.cl/sbuta/", 0, 2,-18.490058,-70.295735));
 
 
     }

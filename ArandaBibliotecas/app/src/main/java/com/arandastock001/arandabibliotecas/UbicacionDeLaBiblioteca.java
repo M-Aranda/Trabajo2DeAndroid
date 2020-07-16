@@ -31,12 +31,16 @@ public class UbicacionDeLaBiblioteca extends FragmentActivity implements OnMapRe
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        init();
     }
 
     public void init(){
         Intent i = getIntent();
 
         b = ((Biblioteca) i.getSerializableExtra("bibliotecaSeleccionada"));
+        System.out.println("El nombre de la bibliotecas es"+b.getNombre());
+
+
     }
 
     @Override
@@ -77,9 +81,19 @@ public class UbicacionDeLaBiblioteca extends FragmentActivity implements OnMapRe
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+
+
+        //La primera es latitud, la segunda es longitud
+        //LatLng posicion = new LatLng(-18.481431, -70.319800);
+        LatLng posicion = new LatLng(b.getLatitud(), b.getLongitud());
+        mMap.addMarker(new MarkerOptions().position(posicion).title("Biblioteca "+b.getNombre()));
+
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(posicion, 30));
+        mMap.getUiSettings().setZoomControlsEnabled(true);
+        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+
+
+
     }
 }
