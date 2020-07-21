@@ -117,9 +117,12 @@ public class BuscadorDeBibiliotecas extends AppCompatActivity {
                 }else{
                     Ciudad c = ((Ciudad) spnCiudad.getSelectedItem());
                     int esPublica = 1;
-                    if(String.valueOf(spnTipo.toString())=="Privada"){
+
+                    if((spnTipo.getSelectedItem().toString())=="Privada"){
                         esPublica = 0;
                     }
+
+
 
                     listaDeBibliotecasEncontradas = db.getBibliotecasFiltradas(c.getId(), esPublica);
 
@@ -599,7 +602,14 @@ public class BuscadorDeBibiliotecas extends AppCompatActivity {
 
 
 
-        listaCiudades= db.getCiudades();
+        listaCiudades = db.getCiudades();
+        /*
+        for (Ciudad c: listaCiudades
+             ) {
+            System.out.println(c.getId());
+            System.out.println(c.toString());
+        }
+        */
 
         if(!listaCiudades.isEmpty()){
             adaptadorCiudades = new ArrayAdapter<Ciudad>(this.getApplicationContext(), android.R.layout.simple_spinner_dropdown_item,listaCiudades)//;
@@ -730,6 +740,38 @@ public class BuscadorDeBibiliotecas extends AppCompatActivity {
 
         db.insertarBiblioteca(new Biblioteca(1,"Central universidad de Tarapacá", "18 de Septiembre 2222", "No se encontró",
                 "http://sb.uta.cl/sbuta/", 0, 2,-18.490058,-70.295735));
+
+
+
+
+        db.insertarBiblioteca(new Biblioteca(1,"Biblioteca Municipal de Providencia", "Av Providencia 1590", "(2) 2236 0218",
+                "biblioteca.providencia.cl ", 1, 317,-33.426977, -70.616802));
+
+
+        db.insertarBiblioteca(new Biblioteca(1,"Café Literario Santa Isabel", "Santa Isabel 1240"
+               , "(2) 2209 8964",
+                "No se encontró", 1, 317,-33.446738, -70.614219));
+
+        db.insertarBiblioteca(new Biblioteca(1,"Café Literario Parque Bustamante", "Metro Baquedano Providencia General Bustamante, Altura #50,", " (2) 2381 2230",
+                "No se encontró", 1, 317,-33.439188, -70.632427));
+
+
+
+
+
+
+        db.insertarBiblioteca(new Biblioteca(1,"Biblioteca San Bernardo", "Freire 473", "+56229270936",
+                "biblioredes.cl", 1, 333,-33.592371, -70.703512));
+
+        db.insertarBiblioteca(new Biblioteca(1,"Biblioteca Pública Municipal Nº 266", "José Joaquín, Pérez 547, Lebu, Bío Bío"
+               , "No se encontró",
+                "No tiene", 1, 333,-33.593892, -70.700819));
+
+        db.insertarBiblioteca(new Biblioteca(1,"Libreria Bazar Amanda", "Freire 895", "+56982265914",
+                "No tiene", 0, 333,-33.598553, -70.705948));
+
+
+
 
 
     }

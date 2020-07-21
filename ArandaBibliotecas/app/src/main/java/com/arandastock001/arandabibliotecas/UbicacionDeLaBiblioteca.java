@@ -89,7 +89,7 @@ public class UbicacionDeLaBiblioteca extends FragmentActivity implements OnMapRe
         mMap.addMarker(new MarkerOptions().position(posicion).title("Biblioteca "+b.getNombre()));
 
 
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(posicion, 30));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(posicion, 18));
         mMap.getUiSettings().setZoomControlsEnabled(true);
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 

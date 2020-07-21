@@ -178,6 +178,7 @@ public class Data extends SQLiteOpenHelper {
 
         SQLiteDatabase bd = getReadableDatabase();
         Cursor leer = bd.rawQuery("SELECT * FROM BIBLIOTECA WHERE _fkCiudad = "+id+" AND _esPublica = "+esPublica+";" ,null);
+        System.out.println("SELECT * FROM BIBLIOTECA WHERE _fkCiudad = "+id+" AND _esPublica = "+esPublica+";");
 
         Biblioteca b;
         while(leer.moveToNext()){
